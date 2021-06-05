@@ -5,25 +5,25 @@
 class Rh < Formula
   desc "Request Hole is a command line tool for creating a temporary endpoint."
   homepage "https://github.com/aaronvb/request_hole"
-  version "0.5.1"
+  version "0.6.0"
   license "MIT"
   bottle :unneeded
 
   if OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/aaronvb/request_hole/releases/download/v0.5.1/request_hole_0.5.1_Darwin_x86_64.tar.gz"
-    sha256 "1dc972d7dce6e8af9e8055adef037f8f0923702bffd00e72b4a79194ca8d3d1a"
+    url "https://github.com/aaronvb/request_hole/releases/download/v0.6.0/request_hole_0.6.0_Darwin_x86_64.tar.gz"
+    sha256 "35d9b14be37662e7d7fbf6a0c122e9a49b72d25fb87815c22b83c9b14c57b3a4"
   end
   if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/aaronvb/request_hole/releases/download/v0.5.1/request_hole_0.5.1_Darwin_arm64.tar.gz"
-    sha256 "b6d9edd81296572e83363dd63645846e82a90c333927a35a477b15e999ace164"
+    url "https://github.com/aaronvb/request_hole/releases/download/v0.6.0/request_hole_0.6.0_Darwin_arm64.tar.gz"
+    sha256 "696d8f026ff4198ba665b2b2f4417eddcfea6997ffe1e30f7757c06be33e2cb2"
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/aaronvb/request_hole/releases/download/v0.5.1/request_hole_0.5.1_Linux_x86_64.tar.gz"
-    sha256 "c32be5b691e7f59ca5bd26e7b85fb75d862510af4597d0d03c132d00c45a3cb2"
+    url "https://github.com/aaronvb/request_hole/releases/download/v0.6.0/request_hole_0.6.0_Linux_x86_64.tar.gz"
+    sha256 "0e0c314daf14791301ee0dd15a4494c31005f0c888263d27ec22801b71bc7d2b"
   end
   if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/aaronvb/request_hole/releases/download/v0.5.1/request_hole_0.5.1_Linux_arm64.tar.gz"
-    sha256 "4bdfcb68cfecce17c896cd293d6acc2e9a131f814424d04ebff6bc80473f51e0"
+    url "https://github.com/aaronvb/request_hole/releases/download/v0.6.0/request_hole_0.6.0_Linux_arm64.tar.gz"
+    sha256 "5e0b2f35130c4353861ea372c8a6ca02ffe2b6f7e2fabc07b8494af2a0afd817"
   end
 
   depends_on "go" => :optional
