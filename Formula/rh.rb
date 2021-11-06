@@ -5,32 +5,48 @@
 class Rh < Formula
   desc "Request Hole is a command line tool for creating a temporary endpoint."
   homepage "https://github.com/aaronvb/request_hole"
-  version "1.1.0"
+  version "1.2.0"
   license "MIT"
-  bottle :unneeded
 
-  if OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/aaronvb/request_hole/releases/download/v1.1.0/request_hole_1.1.0_Darwin_x86_64.tar.gz"
-    sha256 "ef7b0fe98bb1c101ebd4abd205c89ed14b3b512925800dad3f439f2247fcc9d6"
+  on_macos do
+    if Hardware::CPU.arm?
+      url "https://github.com/aaronvb/request_hole/releases/download/v1.2.0/request_hole_1.2.0_Darwin_arm64.tar.gz"
+      sha256 "f2f5e48d50e735bc9862adaa25464969a71e746be1f51b42d3db851a5c5019c1"
+
+      def install
+        bin.install "rh"
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/aaronvb/request_hole/releases/download/v1.2.0/request_hole_1.2.0_Darwin_x86_64.tar.gz"
+      sha256 "7963c849151b7fdae7f34d54b37855c86b3df3c689545e5b7b7351d4b007c2bf"
+
+      def install
+        bin.install "rh"
+      end
+    end
   end
-  if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/aaronvb/request_hole/releases/download/v1.1.0/request_hole_1.1.0_Darwin_arm64.tar.gz"
-    sha256 "ba61c584caa785f127fdfa38907a27896f1e5077766101c78973c0976a1614e8"
-  end
-  if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/aaronvb/request_hole/releases/download/v1.1.0/request_hole_1.1.0_Linux_x86_64.tar.gz"
-    sha256 "ecfc9e21e20c2431d957e944bfc7a8fe8032560277b02f3881820121281fbf54"
-  end
-  if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/aaronvb/request_hole/releases/download/v1.1.0/request_hole_1.1.0_Linux_arm64.tar.gz"
-    sha256 "9d88d2417a6bb0d4b6db5bddce1b37e488e3cf1cc9a1a00cace4cc63224acf5a"
+
+  on_linux do
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/aaronvb/request_hole/releases/download/v1.2.0/request_hole_1.2.0_Linux_arm64.tar.gz"
+      sha256 "0dc61aa3c8983c2d8c0890563104b2da6f72a71251a7eb53518d626686ca6686"
+
+      def install
+        bin.install "rh"
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/aaronvb/request_hole/releases/download/v1.2.0/request_hole_1.2.0_Linux_x86_64.tar.gz"
+      sha256 "002b90df6e9041fef4d1c4695d1857b7c6888cc789f8d380ead6eba0b865d271"
+
+      def install
+        bin.install "rh"
+      end
+    end
   end
 
   depends_on "go" => :optional
-
-  def install
-    bin.install "rh"
-  end
 
   test do
     system "#{bin}/rh version"
